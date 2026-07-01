@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Image Tools
 
-## Getting Started
+Free online AI image processing tools. All processing runs in your browser — nothing is uploaded to any server.
 
-First, run the development server:
+## Tools
+
+| Tool | Description | Technology |
+|------|-------------|-----------|
+| **Remove Background** | Remove image background in one click | @imgly/background-removal (Wasm) |
+| **Compress Image** | Reduce JPG/PNG/WebP file size | Canvas API |
+| **Convert Format** | Convert between JPG/PNG/WebP/GIF/BMP | Canvas API |
+| **Resize & Crop** | Resize to any dimension, social media presets | Canvas API |
+| **ID Photo Maker** | Passport, visa, and standard ID photos | Canvas API |
+| **AI Image Upscaler** | 4x super-resolution with Real-ESRGAN neural network | TensorFlow.js + ESRGAN |
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **AI Background Removal**: @imgly/background-removal (browser Wasm)
+- **AI Upscaling**: TensorFlow.js + Real-ESRGAN (browser, offline)
+- **Image Processing**: Canvas API (browser only)
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/
+│   ├── layout.tsx          # Global layout + SEO meta
+│   ├── page.tsx            # Home page (tool card grid)
+│   ├── globals.css         # Global styles
+│   └── tools/
+│       ├── remove-bg/      # AI background removal
+│       ├── compress/       # Image compression
+│       ├── format-convert/ # Format conversion
+│       ├── resize/         # Resize & crop
+│       ├── id-photo/       # ID photo maker
+│       └── upscale/        # AI image upscaler (Real-ESRGAN)
+├── components/
+│   ├── ImageUploader.tsx   # Drag & drop upload
+│   ├── ImagePreview.tsx    # Preview + download
+│   ├── ToolLayout.tsx      # Tool page layout
+│   └── ProcessingOverlay.tsx # Processing spinner
+└── lib/
+    ├── utils.ts            # Utility functions
+    ├── compress.ts         # Compression logic
+    ├── formatConvert.ts    # Format conversion logic
+    ├── resize.ts           # Resize logic
+    └── idPhoto.ts          # ID photo logic
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Models
 
-## Learn More
+AI models are bundled with the website under `public/models/`:
 
-To learn more about Next.js, take a look at the following resources:
+| Model | Size | Description |
+|-------|------|-------------|
+| Slim | 3.8 MB | Fast, good quality (default) |
+| Medium | 12 MB | Balanced speed & quality |
+| Thick | 112 MB | Best quality, slower |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Models load once and are cached by the browser for offline use.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Recommended: deploy to Vercel (free tier):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx vercel --prod
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Privacy
+
+All image processing happens entirely in your browser. **Files never leave your device.** Once you close the page, everything is gone.

@@ -1,65 +1,162 @@
-import Image from "next/image";
+'use client'
+
+import Link from 'next/link'
+import {
+  ImageDown,
+  FileDown,
+  Shuffle,
+  Maximize,
+  IdCard,
+  ZoomIn,
+  Expand,
+  Sparkles,
+  Shield,
+  Zap,
+  Globe,
+} from 'lucide-react'
+import LanguageSelector from '@/components/LanguageSelector'
+import { useLang } from '@/i18n/LangContext'
+import { t, tRaw } from '@/i18n/translations'
+
+const TOOL_PATHS = [
+  { href: '/tools/remove-bg', icon: ImageDown, color: 'from-violet-500 to-purple-600', key: 'removeBg' },
+  { href: '/tools/compress', icon: FileDown, color: 'from-emerald-500 to-teal-600', key: 'compress' },
+  { href: '/tools/format-convert', icon: Shuffle, color: 'from-blue-500 to-indigo-600', key: 'formatConvert' },
+  { href: '/tools/resize', icon: Maximize, color: 'from-amber-500 to-orange-600', key: 'resize' },
+  { href: '/tools/id-photo', icon: IdCard, color: 'from-rose-500 to-pink-600', key: 'idPhoto' },
+  { href: '/tools/upscale', icon: ZoomIn, color: 'from-cyan-500 to-sky-600', key: 'upscale' },
+  { href: '/tools/enlarge', icon: Expand, color: 'from-orange-500 to-red-600', key: 'enlarge' },
+]
+
+const POPULAR_TOOLS = ['removeBg', 'compress', 'formatConvert', 'idPhoto', 'upscale', 'enlarge']
 
 export default function Home() {
+  const { lang } = useLang()
+
+  const getToolTitle = (key: string) => t(lang, `${key}.title`)
+  const getToolDesc = (key: string) => t(lang, `${key}.desc`)
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white dark:bg-zinc-950">
+      {/* Navigation */}
+      <header className="border-b border-zinc-100 dark:border-zinc-800">
+        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-5 h-5 text-blue-600" />
+            <span className="font-bold text-zinc-800 dark:text-zinc-200">
+              AI Image Tools
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <nav className="flex items-center gap-4 text-sm text-zinc-500">
+              <a href="#tools" className="hover:text-zinc-700 dark:hover:text-zinc-300">{t(lang, 'nav.tools')}</a>
+              <a href="#features" className="hover:text-zinc-700 dark:hover:text-zinc-300">{t(lang, 'nav.features')}</a>
+            </nav>
+            <LanguageSelector />
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Hero */}
+      <section className="max-w-4xl mx-auto px-4 py-20 text-center">
+        {/* Privacy Badge - more prominent */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/50 dark:to-blue-950/50 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 text-sm font-medium mb-8 shadow-sm">
+          <Shield className="w-4 h-4" />
+          <span>{t(lang, 'hero.badge')}</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
         </div>
-      </main>
+
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+          {t(lang, 'hero.heading')}
+        </h1>
+        <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
+          {t(lang, 'hero.sub')}
+          <br />
+          {t(lang, 'hero.sub2')}
+        </p>
+
+        {/* Privacy highlights */}
+        <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+            <span>{t(lang, 'hero.highlight1')}</span>
+          </div>
+          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+            <span>{t(lang, 'hero.highlight2')}</span>
+          </div>
+          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
+            <span>{t(lang, 'hero.highlight3')}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Tool Grid */}
+      <section id="tools" className="max-w-5xl mx-auto px-4 pb-20">
+        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 text-center">
+          {t(lang, 'section.choose')}
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {TOOL_PATHS.map((tool) => (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="group relative p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all hover:shadow-lg hover:-translate-y-0.5"
+            >
+              {POPULAR_TOOLS.includes(tool.key) && (
+                <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 text-xs font-medium">
+                  {t(lang, 'popular')}
+                </span>
+              )}
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center mb-4`}>
+                <tool.icon className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {getToolTitle(tool.key)}
+              </h3>
+              <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                {getToolDesc(tool.key)}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="bg-zinc-50 dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800">
+        <div className="max-w-5xl mx-auto px-4 py-16">
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-10 text-center">
+            {t(lang, 'section.why')}
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {['privacy', 'fast', 'free'].map((key) => {
+              const f = tRaw(lang, `features.${key}`) as any
+              const icons = { privacy: Shield, fast: Zap, free: Globe } as const
+              const Icon = icons[key as keyof typeof icons]
+              return (
+                <div key={key} className="text-center">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900 flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mb-1">{f.title}</h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{f.desc}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-sm text-zinc-400">
+        <p>{t(lang, 'footer')}</p>
+        <p className="mt-1 text-xs text-zinc-400/60">
+          <a href="https://github.com/westwell-lab/ai-image-tools" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300 underline underline-offset-2">
+            AGPL v3 · View source on GitHub
+          </a>
+        </p>
+      </footer>
     </div>
-  );
+  )
 }
