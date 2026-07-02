@@ -143,6 +143,21 @@ const translations: Record<string, DeepDict> = {
       processing: 'Processing...',
       download: 'Download PNG',
     },
+
+    ocr: {
+      title: 'Image to Text (OCR)',
+      desc: 'Extract text from images using AI-powered OCR. Supports 20+ languages. All processing runs locally in your browser \u2014 nothing is uploaded.',
+      btn: 'Extract Text',
+      processing: 'Recognizing text...',
+      langLabel: 'Language',
+      langHint: 'Select the language of the text in your image for best accuracy.',
+      resultLabel: 'Extracted Text',
+      copy: 'Copy',
+      copied: 'Copied!',
+      downloadTxt: 'Download .txt',
+      placeholder: 'Extracted text will appear here...',
+      charCount: '{count} characters',
+    },
   },
 }
 

@@ -9,6 +9,7 @@ import {
   IdCard,
   ZoomIn,
   Expand,
+  FileText,
   Sparkles,
   Shield,
   Zap,
@@ -26,9 +27,10 @@ const TOOL_PATHS = [
   { href: '/tools/id-photo', icon: IdCard, color: 'from-rose-500 to-pink-600', key: 'idPhoto' },
   { href: '/tools/upscale', icon: ZoomIn, color: 'from-cyan-500 to-sky-600', key: 'upscale' },
   { href: '/tools/enlarge', icon: Expand, color: 'from-orange-500 to-red-600', key: 'enlarge' },
+  { href: '/tools/ocr', icon: FileText, color: 'from-purple-500 to-pink-600', key: 'ocr' },
 ]
 
-const POPULAR_TOOLS = ['removeBg', 'compress', 'formatConvert', 'idPhoto', 'upscale', 'enlarge']
+const POPULAR_TOOLS = ['removeBg', 'compress', 'formatConvert', 'idPhoto', 'upscale', 'ocr']
 
 export default function Home() {
   const { lang } = useLang()
