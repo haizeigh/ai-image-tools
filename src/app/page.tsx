@@ -54,6 +54,9 @@ export default function Home() {
               <a href="#tools" className="hover:text-zinc-700 dark:hover:text-zinc-300">{t(lang, 'nav.tools')}</a>
               <a href="#features" className="hover:text-zinc-700 dark:hover:text-zinc-300">{t(lang, 'nav.features')}</a>
             </nav>
+            <a href="mailto:support.img@aixiaot.com" className="hidden sm:inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              support.img@aixiaot.com
+            </a>
             <LanguageSelector />
           </div>
         </div>

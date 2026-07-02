@@ -33,7 +33,12 @@ export default function ToolLayout({ title, description, children }: ToolLayoutP
               AI Image Tools
             </Link>
           </div>
-          <LanguageSelector />
+          <div className="flex items-center gap-3">
+            <a href="mailto:support.img@aixiaot.com" className="hidden sm:inline-flex items-center gap-1 text-xs text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              support.img@aixiaot.com
+            </a>
+            <LanguageSelector />
+          </div>
         </div>
       </header>
 
