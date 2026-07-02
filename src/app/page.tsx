@@ -63,38 +63,20 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-4 py-20 text-center">
-        {/* Privacy Badge - more prominent */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/50 dark:to-blue-950/50 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 text-sm font-medium mb-8 shadow-sm">
+      <section className="max-w-4xl mx-auto px-4 py-12 text-center">
+        {/* Privacy Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-950/50 dark:to-blue-950/50 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 text-sm font-medium mb-6 shadow-sm">
           <Shield className="w-4 h-4" />
           <span>{t(lang, 'hero.badge')}</span>
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
           {t(lang, 'hero.heading')}
         </h1>
-        <p className="mt-4 text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
+        <p className="mt-3 text-base text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
           {t(lang, 'hero.sub')}
-          <br />
-          {t(lang, 'hero.sub2')}
         </p>
-
-        {/* Privacy highlights */}
-        <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
-          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
-            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-            <span>{t(lang, 'hero.highlight1')}</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
-            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-            <span>{t(lang, 'hero.highlight2')}</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-600 dark:text-zinc-400">
-            <div className="w-2 h-2 rounded-full bg-green-500 shrink-0" />
-            <span>{t(lang, 'hero.highlight3')}</span>
-          </div>
-        </div>
       </section>
 
       {/* Tool Grid */}
@@ -125,6 +107,24 @@ export default function Home() {
               </p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Privacy highlights */}
+      <section className="max-w-5xl mx-auto px-4 pb-12">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+            {t(lang, 'hero.highlight1')}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+            {t(lang, 'hero.highlight2')}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+            {t(lang, 'hero.highlight3')}
+          </span>
         </div>
       </section>
 
