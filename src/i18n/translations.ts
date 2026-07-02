@@ -157,6 +157,11 @@ const translations: Record<string, DeepDict> = {
       downloadTxt: 'Download .txt',
       placeholder: 'Extracted text will appear here...',
       charCount: '{count} characters',
+      tipsTitle: 'Tips for best results',
+      tip1: 'Use clear, high-resolution images (300+ DPI recommended)',
+      tip2: 'Text should be at least 20px tall for best accuracy',
+      tip3: 'For screenshots with small text, enlarge the image first using our Image Resizer tool',
+      tip4: 'Select the correct language for better recognition',
     },
   },
 }

@@ -116,6 +116,22 @@ export default function OCRPage() {
             <p className="text-xs text-zinc-400 mt-2">{t(lang, 'ocr.langHint')}</p>
           </div>
 
+          {/* Tips */}
+          <div className="p-4 rounded-xl bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800">
+            <div className="flex items-start gap-2">
+              <span className="text-base shrink-0 mt-0.5 text-amber-500">&#9889;</span>
+              <div>
+                <p className="text-sm font-medium text-amber-800 dark:text-amber-200 mb-1">{t(lang, 'ocr.tipsTitle')}</p>
+                <ul className="text-xs text-amber-700 dark:text-amber-300 space-y-0.5 list-disc list-inside">
+                  <li>{t(lang, 'ocr.tip1')}</li>
+                  <li>{t(lang, 'ocr.tip2')}</li>
+                  <li>{t(lang, 'ocr.tip3')}</li>
+                  <li>{t(lang, 'ocr.tip4')}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {processing ? (
             <ProcessingOverlay message={t(lang, 'ocr.processing')} />
           ) : (
