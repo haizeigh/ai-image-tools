@@ -124,7 +124,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200">9. Contact</h2>
             <p>
-              If you have any questions about this Privacy Policy, please open an issue on our <a href="https://github.com/haizeigh/ai-image-tools" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 underline">GitHub repository</a>.
+              If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support.img@aixiaot.com" className="text-blue-600 dark:text-blue-400 underline">support.img@aixiaot.com</a> or open an issue on our <a href="https://github.com/haizeigh/ai-image-tools" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 underline">GitHub repository</a>.
             </p>
           </section>
         </div>
