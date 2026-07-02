@@ -54,7 +54,7 @@ export default function RootLayout({
         <LangProvider>{children}</LangProvider>
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1145188294871152"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           crossOrigin="anonymous"
         />
       </body>
