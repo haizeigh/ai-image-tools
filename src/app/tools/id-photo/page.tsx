@@ -29,9 +29,47 @@ export default function IDPhotoPage() {
     if (!file) return
     gtag('event', 'tool_used', { tool_name: 'id-photo' })
     await run(async () => {
-      const blob = await makeIDPhoto(file, selectedSpec, bgColor)
+      // Step 1: Remove background
+      const { removeBackground } = await import('@imgly/background-removal')
+      const bgRemovedBlob = await removeBackground(file, {
+        progress: (p: any) => console.log('Remove BG progress:', p),
+      })
+      const bgRemovedUrl = URL.createObjectURL(bgRemovedBlob)
+
+      // Step 2: Load the background-removed image
+      const img = await new Promise<HTMLImageElement>((resolve, reject) => {
+        const imgEl = new Image()
+        imgEl.onload = () => resolve(imgEl)
+        imgEl.onerror = reject
+        imgEl.src = bgRemovedUrl
+      })
+
+      // Step 3: Create ID photo with background color
+      const mmToPx = (mm: number) => Math.round((mm / 25.4) * 300)
+      const pw = mmToPx(selectedSpec.width), ph = mmToPx(selectedSpec.height)
+
+      const canvas = document.createElement('canvas')
+      canvas.width = pw
+      canvas.height = ph
+      const ctx = canvas.getContext('2d')!
+
+      // Fill background color
+      ctx.fillStyle = bgColor
+      ctx.fillRect(0, 0, pw, ph)
+
+      // Draw person centered, scaled to fit (85% of the frame)
+      const scale = Math.min(pw / img.width, ph / img.height) * 0.85
+      const dx = (pw - img.width * scale) / 2
+      const dy = (ph - img.height * scale) / 2
+      ctx.drawImage(img, dx, dy, img.width * scale, img.height * scale)
+
+      // Step 4: Export
+      const blob = await new Promise<Blob>((resolve) => {
+        canvas.toBlob((b) => resolve(b!), 'image/jpeg', 0.95)
+      })
       setResult(URL.createObjectURL(blob))
       setResultSize(blob.size)
+      URL.revokeObjectURL(bgRemovedUrl)
     }, t(lang, 'idPhoto.processing'))
   }, [file, selectedSpec, bgColor, run, lang])
 
