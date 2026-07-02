@@ -85,7 +85,7 @@ export default function Home() {
           {t(lang, 'section.choose')}
         </h2>
         <p className="text-sm text-zinc-400 text-center mb-8">
-          🔒 {t(lang, 'hero.badge')}
+          🔒 {t(lang, 'hero.privacyNote')}
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TOOL_PATHS.map((tool) => (

@@ -11,6 +11,7 @@ const translations: Record<string, DeepDict> = {
     nav: { back: 'Back to Home', tools: 'Tools', features: 'Features' },
     hero: {
       badge: 'Runs in your browser \u00b7 Nothing is uploaded',
+      privacyNote: 'Your images stay on your device \u2014 100% private, no upload, no tracking',
       heading: 'Free Online AI Image Tools',
       sub: 'Remove backgrounds, compress images, convert formats, make ID photos, upscale with AI',
       sub2: 'All tools run locally in your browser \u2014 your privacy is guaranteed',
