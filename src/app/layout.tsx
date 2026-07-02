@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import { LangProvider } from "@/i18n/LangContext";
 
@@ -52,9 +51,9 @@ export default function RootLayout({
     >
       <body>
         <LangProvider>{children}</LangProvider>
-        <Script
+        <script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1145188294871152"
-          strategy="beforeInteractive"
+          async
           crossOrigin="anonymous"
         />
       </body>
