@@ -80,10 +80,13 @@ export default function Home() {
       </section>
 
       {/* Tool Grid */}
-      <section id="tools" className="max-w-5xl mx-auto px-4 pb-20">
-        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-8 text-center">
+      <section id="tools" className="max-w-5xl mx-auto px-4 pb-8">
+        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-2 text-center">
           {t(lang, 'section.choose')}
         </h2>
+        <p className="text-sm text-zinc-400 text-center mb-8">
+          🔒 {t(lang, 'hero.badge')}
+        </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TOOL_PATHS.map((tool) => (
             <Link
@@ -96,6 +99,9 @@ export default function Home() {
                   {t(lang, 'popular')}
                 </span>
               )}
+              <span className="absolute top-3 left-3 px-1.5 py-0.5 rounded text-[10px] font-medium text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800">
+                🔒 Local
+              </span>
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center mb-4`}>
                 <tool.icon className="w-6 h-6 text-white" />
               </div>
