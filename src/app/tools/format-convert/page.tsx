@@ -30,6 +30,7 @@ export default function FormatConvertPage() {
 
   const handleConvert = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'format-convert' })
     await run(async () => {
       const blob = await convertFormat(file, targetFormat)
       setResult(URL.createObjectURL(blob))

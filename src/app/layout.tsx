@@ -51,6 +51,17 @@ export default function RootLayout({
     >
       <body>
         <LangProvider>{children}</LangProvider>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VXV0D4R20" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2VXV0D4R20');
+            `,
+          }}
+        />
         <script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1145188294871152"
           async

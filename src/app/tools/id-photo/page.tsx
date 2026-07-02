@@ -27,6 +27,7 @@ export default function IDPhotoPage() {
 
   const handleMake = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'id-photo' })
     await run(async () => {
       const blob = await makeIDPhoto(file, selectedSpec, bgColor)
       setResult(URL.createObjectURL(blob))

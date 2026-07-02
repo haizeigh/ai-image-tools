@@ -31,6 +31,7 @@ export default function CompressPage() {
 
   const handleCompress = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'compress' })
     await run(async () => {
       const blob = await compressImage(file, { quality, maxWidth: maxWidth || undefined })
       const url = URL.createObjectURL(blob)

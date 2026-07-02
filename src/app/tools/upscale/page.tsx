@@ -160,6 +160,7 @@ export default function UpscalePage() {
 
   const handleUpscale = useCallback(async () => {
     if (!file || !modelRef.current) return
+    gtag('event', 'tool_used', { tool_name: 'upscale' })
     const info = getModelInfo(modelSize)
     await run(async () => {
       const tf = await import('@tensorflow/tfjs')

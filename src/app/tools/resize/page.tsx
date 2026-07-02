@@ -44,6 +44,7 @@ export default function ResizePage() {
 
   const handleProcess = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'resize' })
     await run(async () => {
       const blob = await resizeImage(file, { width, height, maintainAspectRatio: maintainRatio })
       setResult(URL.createObjectURL(blob))

@@ -26,6 +26,7 @@ export default function RemoveBgPage() {
 
   const handleRemoveBg = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'remove-bg' })
     await run(async () => {
       const { removeBackground } = await import('@imgly/background-removal')
       const blob = await removeBackground(file, {

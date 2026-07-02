@@ -62,6 +62,7 @@ export default function EnlargePage() {
 
   const handleProcess = useCallback(async () => {
     if (!file) return
+    gtag('event', 'tool_used', { tool_name: 'enlarge' })
     await run(async () => {
       const url = URL.createObjectURL(file)
       const img = await loadImage(url)
