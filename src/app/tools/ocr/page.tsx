@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('Image to Text (OCR)', '/tools/ocr', 'Extract text from images using AI OCR. Supports 20+ languages. Free online OCR tool.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -66,7 +69,11 @@ export default function OCRPage() {
   const handleReset = () => { setFile(null); setPreview(null); setResult(null); setText('') }
 
   return (
-    <ToolLayout
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout
       title={t(lang, 'ocr.title')}
       description={t(lang, 'ocr.desc')}
     >

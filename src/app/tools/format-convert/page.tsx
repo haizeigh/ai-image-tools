@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('Format Convert', '/tools/format-convert', 'Convert images between JPG, PNG, WebP formats. Free online image converter.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -50,7 +53,11 @@ export default function FormatConvertPage() {
   const currentExt = file?.name?.split('.').pop()?.toLowerCase() || ''
 
   return (
-    <ToolLayout title={t(lang, 'formatConvert.title')} description={t(lang, 'formatConvert.desc')}>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout title={t(lang, 'formatConvert.title')} description={t(lang, 'formatConvert.desc')}>
       {!file && <ImageUploader onFileSelect={handleFile} />}
 
       {file && !result && preview && (

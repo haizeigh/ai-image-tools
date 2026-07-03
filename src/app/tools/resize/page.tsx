@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('Resize & Crop', '/tools/resize', 'Resize images to any dimension with social media presets. Free online image resizer.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -66,7 +69,11 @@ export default function ResizePage() {
   const applyPreset = (p: { w: number; h: number }) => { setWidth(p.w); setHeight(p.h) }
 
   return (
-    <ToolLayout title={t(lang, 'resize.title')} description={t(lang, 'resize.desc')}>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout title={t(lang, 'resize.title')} description={t(lang, 'resize.desc')}>
       {!file && <ImageUploader onFileSelect={handleFile} />}
 
       {file && !result && preview && (

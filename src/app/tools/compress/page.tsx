@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('Compress Image', '/tools/compress', 'Reduce image file size while keeping quality. Free online image compressor.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -54,7 +57,11 @@ export default function CompressPage() {
   const compressionRatio = file && resultSize ? Math.round((1 - resultSize / file.size) * 100) : 0
 
   return (
-    <ToolLayout title={t(lang, 'compress.title')} description={t(lang, 'compress.desc')}>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout title={t(lang, 'compress.title')} description={t(lang, 'compress.desc')}>
       {!file && <ImageUploader onFileSelect={handleFile} />}
 
       {file && !result && preview && (

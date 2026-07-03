@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('ID Photo Maker', '/tools/id-photo', 'Create passport and visa ID photos with customizable backgrounds. Free online ID photo maker.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -84,7 +87,11 @@ export default function IDPhotoPage() {
   const handleReset = () => { setFile(null); setPreview(null); setResult(null) }
 
   return (
-    <ToolLayout title={t(lang, 'idPhoto.title')} description={t(lang, 'idPhoto.desc')}>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout title={t(lang, 'idPhoto.title')} description={t(lang, 'idPhoto.desc')}>
       {!file && <ImageUploader onFileSelect={handleFile} accept="image/*" maxSize={20} />}
 
       {file && !result && preview && (

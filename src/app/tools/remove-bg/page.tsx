@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('Remove Background', '/tools/remove-bg', 'Remove image background in one click using AI. Free online tool, runs in your browser.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -53,7 +56,11 @@ export default function RemoveBgPage() {
   }
 
   return (
-    <ToolLayout
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout
       title={t(lang, 'removeBg.title')}
       description={t(lang, 'removeBg.desc')}
     >

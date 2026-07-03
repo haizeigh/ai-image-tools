@@ -1,5 +1,8 @@
 'use client'
 
+import { getSoftwareSchema } from '@/lib/schema';
+
+const jsonLd = getSoftwareSchema('AI Image Upscaler', '/tools/upscale', 'Upscale images 2x to 8x with Real-ESRGAN AI. Free online AI image upscaler.');
 import { useState, useCallback, useRef } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -248,7 +251,11 @@ export default function UpscalePage() {
   const handleReset = () => { setFile(null); setPreview(null); setResult(null) }
 
   return (
-    <ToolLayout title={t(lang, 'upscale.title')} description={t(lang, 'upscale.desc')}>
+    <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolLayout title={t(lang, 'upscale.title')} description={t(lang, 'upscale.desc')}>
       {!file && (
         <div className="space-y-6">
           <div className="p-6 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 space-y-5">
