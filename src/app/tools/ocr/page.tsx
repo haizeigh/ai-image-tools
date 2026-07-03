@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Image to Text (OCR)', '/tools/ocr', 'Extract text from images using AI OCR. Supports 20+ languages. Free online OCR tool.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -12,6 +10,8 @@ import { readFileAsDataURL } from '@/lib/utils'
 import { useLang } from '@/i18n/LangContext'
 import { t } from '@/i18n/translations'
 import { Copy, Check } from 'lucide-react'
+
+
 
 export default function OCRPage() {
   const { lang } = useLang()
@@ -68,8 +68,10 @@ export default function OCRPage() {
 
   const handleReset = () => { setFile(null); setPreview(null); setResult(null); setText('') }
 
+  const jsonLd = getSoftwareSchema('Image to Text (OCR)', '/tools/ocr', 'Extract text from images using AI OCR. Supports 20+ languages. Free online OCR tool.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -197,5 +199,6 @@ export default function OCRPage() {
         </div>
       )}
     </ToolLayout>
+    </>
   )
 }

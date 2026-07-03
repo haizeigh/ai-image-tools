@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('AI Image Upscaler', '/tools/upscale', 'Upscale images 2x to 8x with Real-ESRGAN AI. Free online AI image upscaler.');
 import { useState, useCallback, useRef } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -11,6 +9,8 @@ import ProcessingOverlay, { useProcessing } from '@/components/ProcessingOverlay
 import { readFileAsDataURL } from '@/lib/utils'
 import { useLang } from '@/i18n/LangContext'
 import { t, tRaw } from '@/i18n/translations'
+
+
 
 type ModelSize = 'slim' | 'medium'
 type Scale = 'x2' | 'x3' | 'x4' | 'x8'
@@ -250,8 +250,10 @@ export default function UpscalePage() {
 
   const handleReset = () => { setFile(null); setPreview(null); setResult(null) }
 
+  const jsonLd = getSoftwareSchema('AI Image Upscaler', '/tools/upscale', 'Upscale images 2x to 8x with Real-ESRGAN AI. Free online AI image upscaler.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -265,7 +267,8 @@ export default function UpscalePage() {
               <div className="grid grid-cols-2 gap-3">
                 {MODEL_KEYS.map((key) => {
                   const info = getModelInfo(key)
-                  return (
+                  const jsonLd = getSoftwareSchema('AI Image Upscaler', '/tools/upscale', 'Upscale images 2x to 8x with Real-ESRGAN AI. Free online AI image upscaler.');
+  return (
                     <button key={key} onClick={() => handleModelChange(key, scale)}
                       className={`p-4 rounded-xl text-center border transition-all ${modelSize === key ? 'border-blue-500 bg-blue-50 dark:bg-blue-950 ring-2 ring-blue-200 dark:ring-blue-800' : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600'}`}>
                       <div className="font-semibold text-zinc-800 dark:text-zinc-200">{info.label}</div>
@@ -369,5 +372,6 @@ export default function UpscalePage() {
           downloadLabel={t(lang, 'upscale.download')} extraInfo={`${getModelInfo(modelSize).label} · ${scale}${actualBackend === 'gpu' ? ' · GPU' : ' · Wasm'}`} />
       )}
     </ToolLayout>
+    </>
   )
 }

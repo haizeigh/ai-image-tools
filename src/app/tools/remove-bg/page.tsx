@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Remove Background', '/tools/remove-bg', 'Remove image background in one click using AI. Free online tool, runs in your browser.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -11,6 +9,8 @@ import ProcessingOverlay, { useProcessing } from '@/components/ProcessingOverlay
 import { readFileAsDataURL } from '@/lib/utils'
 import { useLang } from '@/i18n/LangContext'
 import { t } from '@/i18n/translations'
+
+
 
 export default function RemoveBgPage() {
   const { lang } = useLang()
@@ -55,8 +55,10 @@ export default function RemoveBgPage() {
     setResult(null)
   }
 
+  const jsonLd = getSoftwareSchema('Remove Background', '/tools/remove-bg', 'Remove image background in one click using AI. Free online tool, runs in your browser.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -100,5 +102,6 @@ export default function RemoveBgPage() {
         />
       )}
     </ToolLayout>
+    </>
   )
 }

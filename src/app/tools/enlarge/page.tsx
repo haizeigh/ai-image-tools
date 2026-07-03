@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Image Resizer', '/tools/enlarge', 'Enlarge images 2x to 10x or shrink using Canvas interpolation. Free online image resizer.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -11,6 +9,8 @@ import ProcessingOverlay, { useProcessing } from '@/components/ProcessingOverlay
 import { readFileAsDataURL, loadImage, canvasToBlob } from '@/lib/utils'
 import { useLang } from '@/i18n/LangContext'
 import { t } from '@/i18n/translations'
+
+
 
 type Mode = 'enlarge' | 'shrink'
 
@@ -112,8 +112,10 @@ export default function EnlargePage() {
   const newW = originalDims.w > 0 ? Math.round(originalDims.w * scale) : 0
   const newH = originalDims.h > 0 ? Math.round(originalDims.h * scale) : 0
 
+  const jsonLd = getSoftwareSchema('Image Resizer', '/tools/enlarge', 'Enlarge images 2x to 10x or shrink using Canvas interpolation. Free online image resizer.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -246,5 +248,6 @@ export default function EnlargePage() {
         />
       )}
     </ToolLayout>
+    </>
   )
 }

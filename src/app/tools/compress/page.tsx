@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Compress Image', '/tools/compress', 'Reduce image file size while keeping quality. Free online image compressor.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -12,6 +10,8 @@ import { readFileAsDataURL, formatFileSize } from '@/lib/utils'
 import { compressImage } from '@/lib/compress'
 import { useLang } from '@/i18n/LangContext'
 import { t, tArray } from '@/i18n/translations'
+
+
 
 export default function CompressPage() {
   const { lang } = useLang()
@@ -56,8 +56,10 @@ export default function CompressPage() {
 
   const compressionRatio = file && resultSize ? Math.round((1 - resultSize / file.size) * 100) : 0
 
+  const jsonLd = getSoftwareSchema('Compress Image', '/tools/compress', 'Reduce image file size while keeping quality. Free online image compressor.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -77,7 +79,8 @@ export default function CompressPage() {
               <div className="flex justify-between text-xs text-zinc-400 mt-1">
                 {presets.map((p: any, i: number) => {
                   const q = [0.9, 0.75, 0.5, 0.3][i] || 0.75
-                  return (
+                  const jsonLd = getSoftwareSchema('Compress Image', '/tools/compress', 'Reduce image file size while keeping quality. Free online image compressor.');
+  return (
                     <button key={i} onClick={() => setQuality(q)}
                       className={`px-2 py-1 rounded ${quality === q ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' : 'hover:text-zinc-600 dark:hover:text-zinc-300'}`}>
                       {p.label}
@@ -124,5 +127,6 @@ export default function CompressPage() {
         </div>
       )}
     </ToolLayout>
+    </>
   )
 }

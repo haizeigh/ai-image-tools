@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Format Convert', '/tools/format-convert', 'Convert images between JPG, PNG, WebP formats. Free online image converter.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -12,6 +10,8 @@ import { readFileAsDataURL } from '@/lib/utils'
 import { convertFormat } from '@/lib/formatConvert'
 import { useLang } from '@/i18n/LangContext'
 import { t, tArray } from '@/i18n/translations'
+
+
 
 const FORMAT_VALUES = ['png', 'jpg', 'webp']
 
@@ -52,8 +52,10 @@ export default function FormatConvertPage() {
   const handleReset = () => { setFile(null); setPreview(null); setResult(null) }
   const currentExt = file?.name?.split('.').pop()?.toLowerCase() || ''
 
+  const jsonLd = getSoftwareSchema('Format Convert', '/tools/format-convert', 'Convert images between JPG, PNG, WebP formats. Free online image converter.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -69,7 +71,8 @@ export default function FormatConvertPage() {
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
               {formats.map((fmt: any, i: number) => {
                 const val = FORMAT_VALUES[i]
-                return (
+                const jsonLd = getSoftwareSchema('Format Convert', '/tools/format-convert', 'Convert images between JPG, PNG, WebP formats. Free online image converter.');
+  return (
                   <button key={val} onClick={() => setTargetFormat(val)} disabled={val === currentExt}
                     className={`p-3 rounded-lg text-center border transition-all ${val === targetFormat ? 'border-blue-500 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300' : val === currentExt ? 'border-zinc-200 dark:border-zinc-700 text-zinc-300 dark:text-zinc-600 cursor-not-allowed' : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600'}`}>
                     <div className="font-medium text-sm">{fmt.label}</div>
@@ -93,5 +96,6 @@ export default function FormatConvertPage() {
         <ImagePreview src={result} fileName={(file?.name?.replace(/\.[^.]+$/, '') || 'image') + '.' + targetFormat} fileSize={resultSize} onReset={handleReset} onDownload={handleDownload} downloadLabel={t(lang, 'formatConvert.download', { ext: targetFormat })} />
       )}
     </ToolLayout>
+    </>
   )
 }

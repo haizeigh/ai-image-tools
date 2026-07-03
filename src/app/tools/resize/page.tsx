@@ -1,8 +1,6 @@
 'use client'
 
 import { getSoftwareSchema } from '@/lib/schema';
-
-const jsonLd = getSoftwareSchema('Resize & Crop', '/tools/resize', 'Resize images to any dimension with social media presets. Free online image resizer.');
 import { useState, useCallback } from 'react'
 import ToolLayout from '@/components/ToolLayout'
 import ImageUploader from '@/components/ImageUploader'
@@ -12,6 +10,8 @@ import { readFileAsDataURL } from '@/lib/utils'
 import { resizeImage } from '@/lib/resize'
 import { useLang } from '@/i18n/LangContext'
 import { t, tArray } from '@/i18n/translations'
+
+
 
 const PRESET_VALUES = [
   { label: 'Instagram Square', w: 1080, h: 1080 },
@@ -68,8 +68,10 @@ export default function ResizePage() {
 
   const applyPreset = (p: { w: number; h: number }) => { setWidth(p.w); setHeight(p.h) }
 
+  const jsonLd = getSoftwareSchema('Resize & Crop', '/tools/resize', 'Resize images to any dimension with social media presets. Free online image resizer.');
   return (
-    <script
+    <>
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
@@ -126,5 +128,6 @@ export default function ResizePage() {
         <ImagePreview src={result} fileName={(file?.name?.replace(/\.[^.]+$/, '') || 'image') + `-${width}x${height}.` + (file?.name?.split('.').pop() || 'jpg')} fileSize={resultSize} onReset={handleReset} onDownload={handleDownload} extraInfo={`${width} × ${height} px`} />
       )}
     </ToolLayout>
+    </>
   )
 }
