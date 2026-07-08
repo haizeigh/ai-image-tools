@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import ToolLayout from '@/components/ToolLayout'
+import FeedbackButton from '@/components/FeedbackButton'
 import "./globals.css";
-import { LangProvider } from "@/i18n/LangContext";
+import { LangProvider } from '@/i18n/LangContext'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +53,7 @@ export default function RootLayout({
     >
       <body>
         <LangProvider>{children}</LangProvider>
+        <FeedbackButton />
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VXV0D4R20" />
         <script
           dangerouslySetInnerHTML={{
