@@ -3,7 +3,9 @@
 export default function FeedbackButton() {
   return (
     <a
-      href="mailto:support.img@aixiaot.com?subject=Feedback about AI Image Tools"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeBTEBE7AvCrPte2QS9D3IhXmLScZAkDgsVa4uVzAW5oPrGig/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2.5 rounded-full bg-blue-600 text-white text-sm font-medium shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all"
     >
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
