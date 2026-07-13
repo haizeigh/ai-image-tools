@@ -127,6 +127,11 @@ const translations: Record<string, DeepDict> = {
         medium: { label: 'Standard', size: '12 MB', desc: 'Balanced speed & quality' },
       },
     },
+    crop: {
+      title: 'Crop Image',
+      desc: 'Crop any image by drawing a selection rectangle. Choose exactly what to keep and remove the rest. All processing runs locally in your browser.',
+      btn: 'Crop',
+    },
     enlarge: {
       title: 'Image Resizer',
       desc: 'Enlarge images 2x to 10x or shrink to any percentage using Canvas interpolation. Fast and works instantly \u2014 no AI model needed. All processing runs locally in your browser.',

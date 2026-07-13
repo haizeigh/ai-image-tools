@@ -10,6 +10,7 @@ import {
   ZoomIn,
   Expand,
   FileText,
+  Crop,
   Sparkles,
   Shield,
   Zap,
@@ -28,6 +29,7 @@ const TOOL_PATHS = [
   { href: '/tools/upscale', icon: ZoomIn, color: 'from-cyan-500 to-sky-600', key: 'upscale' },
   { href: '/tools/enlarge', icon: Expand, color: 'from-orange-500 to-red-600', key: 'enlarge' },
   { href: '/tools/ocr', icon: FileText, color: 'from-purple-500 to-pink-600', key: 'ocr' },
+  { href: '/tools/crop', icon: Crop, color: 'from-lime-500 to-green-600', key: 'crop' },
 ]
 
 const POPULAR_TOOLS = ['removeBg', 'compress', 'formatConvert', 'idPhoto', 'upscale', 'ocr']
