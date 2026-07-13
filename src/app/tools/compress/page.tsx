@@ -127,6 +127,49 @@ export default function CompressPage() {
         </div>
       )}
     </ToolLayout>
+      {/* SEO content */}
+      <div className="max-w-3xl mx-auto px-4 pb-16">
+        <div className="border-t border-zinc-200 dark:border-zinc-800 pt-12 space-y-8">
+          <section>
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">How to Compress an Image</h2>
+            <ol className="list-decimal pl-5 space-y-2 text-zinc-600 dark:text-zinc-400">
+              <li><strong>Upload your image</strong> — Drag and drop or click to select a JPG, PNG, or WebP file.</li>
+              <li><strong>Adjust quality</strong> — Use the slider to choose compression level (10% = smallest file, 100% = best quality).</li>
+              <li><strong>Set max width (optional)</strong> — Limit output width to 200px, 800px, or 1920px for smaller files.</li>
+              <li><strong>Click "Compress Image"</strong> — Your compressed image will download automatically.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">Tips for Best Results</h2>
+            <ul className="list-disc pl-5 space-y-2 text-zinc-600 dark:text-zinc-400">
+              <li>For web use, 50-75% quality offers the best balance of size and quality.</li>
+              <li>Use 1920px width limit for full-resolution web images.</li>
+              <li>Use 800px width for blog posts and articles.</li>
+              <li>Use 200px width for thumbnails and avatars.</li>
+              <li>Lossy compression works best for photographs; screenshots may show artifacts at low quality.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-4">FAQ</h2>
+            <div className="space-y-4">
+              <div>
+                <p className="font-medium text-zinc-800 dark:text-zinc-200">Is this free?</p>
+                <p className="text-sm text-zinc-500">Yes, completely free with no limits or sign-up.</p>
+              </div>
+              <div>
+                <p className="font-medium text-zinc-800 dark:text-zinc-200">What formats are supported?</p>
+                <p className="text-sm text-zinc-500">JPG, PNG, and WebP. Output matches the input format.</p>
+              </div>
+              <div>
+                <p className="font-medium text-zinc-800 dark:text-zinc-200">What's the best quality for web?</p>
+                <p className="text-sm text-zinc-500">75% quality is recommended for most web use — good quality with small file size.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </>
   )
 }
