@@ -144,8 +144,16 @@ export default function CropPage() {
       ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
       if (hasSelection || drawing) {
         ctx.fillStyle = 'rgba(0,0,0,0.4)'
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-        ctx.clearRect(sel.x, sel.y, sel.w, sel.h)
+        // Draw dark overlay around the selection (4 rectangles), not on top of it
+        // Top rectangle
+        ctx.fillRect(0, 0, canvas.width, sel.y)
+        // Bottom rectangle
+        ctx.fillRect(0, sel.y + sel.h, canvas.width, canvas.height - sel.y - sel.h)
+        // Left rectangle
+        ctx.fillRect(0, sel.y, sel.x, sel.h)
+        // Right rectangle
+        ctx.fillRect(sel.x + sel.w, sel.y, canvas.width - sel.x - sel.w, sel.h)
+        // Selection border
         ctx.strokeStyle = '#3B82F6'
         ctx.lineWidth = 2
         ctx.strokeRect(sel.x, sel.y, sel.w, sel.h)
