@@ -161,6 +161,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog / Guides section */}
+      <section className="bg-zinc-50 dark:bg-zinc-900 border-y border-zinc-100 dark:border-zinc-800">
+        <div className="max-w-5xl mx-auto px-4 py-16">
+          <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-10 text-center">
+            Guides & Tutorials
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <Link href="/blog/remove-background" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <span className="text-xs font-medium text-blue-600 bg-blue-50 dark:bg-blue-900/30 px-2 py-0.5 rounded">New</span>
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Remove Background from Images Online</h3>
+              <p className="text-xs text-zinc-500">Learn how to automatically remove backgrounds from photos using AI.</p>
+            </Link>
+            <Link href="/blog/compress-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
+              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Compress Images for Web</h3>
+              <p className="text-xs text-zinc-400">Coming soon...</p>
+            </Link>
+            <Link href="/blog/convert-image-format" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
+              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Convert Image Formats</h3>
+              <p className="text-xs text-zinc-400">Coming soon...</p>
+            </Link>
+            <Link href="/blog/resize-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
+              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Resize Images for Social Media</h3>
+              <p className="text-xs text-zinc-400">Coming soon...</p>
+            </Link>
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/blog" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">
+              View all guides →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* About / SEO content */}
       <section className="max-w-3xl mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6 text-center">About AI Image Tools</h2>
