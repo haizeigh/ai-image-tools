@@ -161,6 +161,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About / SEO content */}
+      <section className="max-w-3xl mx-auto px-4 py-16">
+        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 mb-6 text-center">About AI Image Tools</h2>
+        <div className="space-y-4 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <p>AI Image Tools is a completely free online image processing platform. All tools run directly in your browser using WebAssembly and JavaScript — your files never leave your device. No uploads, no servers, no sign-ups.</p>
+          <p>The platform includes nine powerful tools: Remove Background uses a neural network to automatically detect and remove image backgrounds with high accuracy. Compress Image reduces file sizes while preserving visual quality. Format Conversion instantly converts between JPG, PNG, and WebP formats. Resize &amp; Crop lets you scale images to any dimension with preset options for social media platforms. ID Photo Maker creates standard passport and visa photos in multiple sizes. AI Image Upscaler uses Real-ESRGAN technology to intelligently upscale images by 2x to 8x. Image Resizer provides fast Canvas-based scaling. Image to Text (OCR) extracts text from images using AI-powered optical character recognition. The interactive Crop tool lets you draw a selection rectangle and keep only what you want.</p>
+          <p>All tools are built with privacy as the core principle. Since everything runs in your browser, there is no risk of data breaches or unauthorized access to your images. This approach also means zero server costs, which allows us to keep the tools free forever.</p>
+          <p>The project is open source under the AGPL v3 license. The code is available on GitHub for transparency and community contributions.</p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 text-center text-sm text-zinc-400">
         <p>{t(lang, 'footer')}</p>
