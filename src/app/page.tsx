@@ -176,6 +176,7 @@ export default function Home() {
       <footer className="py-8 text-center text-sm text-zinc-400">
         <p>{t(lang, 'footer')}</p>
         <p className="mt-1 text-xs text-zinc-400/60">
+          <Link href="/blog" className="hover:text-zinc-600 dark:hover:text-zinc-300 underline underline-offset-2 mr-3">Guides</Link>
           <Link href="/privacy" className="hover:text-zinc-600 dark:hover:text-zinc-300 underline underline-offset-2 mr-3">Privacy Policy</Link>
           <a href="https://github.com/haizeigh/ai-image-tools" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300 underline underline-offset-2 mr-3">
             AGPL v3 · GitHub
