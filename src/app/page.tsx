@@ -173,17 +173,25 @@ export default function Home() {
               <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Remove Background from Images Online</h3>
               <p className="text-xs text-zinc-500">Learn how to automatically remove backgrounds from photos using AI.</p>
             </Link>
-            <Link href="/blog/compress-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
-              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Compress Images for Web</h3>
-              <p className="text-xs text-zinc-400">Coming soon...</p>
+            <Link href="/blog/compress-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Compress Images for Web</h3>
+              <p className="text-xs text-zinc-500">Reduce file size without losing quality. Adjustable quality from 10% to 100%.</p>
             </Link>
-            <Link href="/blog/convert-image-format" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
-              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Convert Image Formats</h3>
-              <p className="text-xs text-zinc-400">Coming soon...</p>
+            <Link href="/blog/convert-image-format" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Convert Image Formats</h3>
+              <p className="text-xs text-zinc-500">Convert between JPG, PNG, and WebP instantly in your browser.</p>
             </Link>
-            <Link href="/blog/resize-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all opacity-60 pointer-events-none">
-              <h3 className="font-semibold text-zinc-500 mt-1 mb-1 text-sm">How to Resize Images for Social Media</h3>
-              <p className="text-xs text-zinc-400">Coming soon...</p>
+            <Link href="/blog/resize-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Resize Images for Social Media</h3>
+              <p className="text-xs text-zinc-500">Use presets for Instagram, Twitter, YouTube, LinkedIn, and Facebook.</p>
+            </Link>
+            <Link href="/blog/make-id-photo" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Make ID Photos at Home</h3>
+              <p className="text-xs text-zinc-500">Create passport, visa, and official ID photos in standard sizes.</p>
+            </Link>
+            <Link href="/blog/upscale-image-ai" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Upscale Images with AI</h3>
+              <p className="text-xs text-zinc-500">Enlarge images 2x to 8x using Real-ESRGAN neural network.</p>
             </Link>
           </div>
           <div className="text-center mt-8">
