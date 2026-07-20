@@ -193,6 +193,18 @@ export default function Home() {
               <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Upscale Images with AI</h3>
               <p className="text-xs text-zinc-500">Enlarge images 2x to 8x using Real-ESRGAN neural network.</p>
             </Link>
+            <Link href="/blog/crop-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Crop Images Online</h3>
+              <p className="text-xs text-zinc-500">Draw a selection rectangle and keep only what you want.</p>
+            </Link>
+            <Link href="/blog/enlarge-image" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Enlarge or Shrink Images</h3>
+              <p className="text-xs text-zinc-500">Scale images 10% to 1000% with Canvas interpolation.</p>
+            </Link>
+            <Link href="/blog/image-to-text-ocr" className="block p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all">
+              <h3 className="font-semibold text-zinc-800 dark:text-zinc-200 mt-2 mb-1 text-sm">How to Extract Text from Images with OCR</h3>
+              <p className="text-xs text-zinc-500">Recognize text in 20+ languages using AI-powered OCR.</p>
+            </Link>
           </div>
           <div className="text-center mt-8">
             <Link href="/blog" className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">
